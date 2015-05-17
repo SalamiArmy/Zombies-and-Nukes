@@ -8,11 +8,6 @@
 
 function writeMessage(canvas, message) {
     document.getElementById("ID").value = message;
-    //var context = canvas.getContext('2d');
-    //context.clearRect(0, 0, 75, 75);
-    //context.font = '18pt Calibri';
-    //context.fillStyle = 'black';
-    //context.fillText(message, 10, 25);
 }
 
 function AddMouseHandler(canvas, grid) {

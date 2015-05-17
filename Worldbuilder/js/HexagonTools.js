@@ -166,10 +166,6 @@ HT.Hexagon.prototype.isInHexBounds = function(/*Point*/ p) {
 	return false;
 };
 
-//grabbed from:
-//http://www.developingfor.net/c-20/testing-to-see-if-a-point-is-within-a-polygon.html
-//and
-//http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html#The%20C%20Code
 /**
  * Returns true if the point is inside this hexagon, it first uses the quick isInHexBounds contains, then check the boundaries
  * @this {HT.Hexagon}
@@ -181,7 +177,6 @@ HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
 	if (this.isInHexBounds(p))
 	{
 		//turn our absolute point into a relative point for comparing with the polygon's points
-		//var pRel = new HT.Point(p.X - this.x, p.Y - this.y);
 		var i, j = 0;
 		for (i = 0, j = this.Points.length - 1; i < this.Points.length; j = i++)
 		{
@@ -191,7 +186,6 @@ HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
 				(
 				 ((iP.Y <= p.Y) && (p.Y < jP.Y)) ||
 				 ((jP.Y <= p.Y) && (p.Y < iP.Y))
-				//((iP.Y > p.Y) != (jP.Y > p.Y))
 				) &&
 				(p.X < (jP.X - iP.X) * (p.Y - iP.Y) / (jP.Y - iP.Y) + iP.X)
 			   )

@@ -31,12 +31,8 @@ HT.Grid = function(/*double*/ width, /*double*/ height) {
 			var h = new HT.Hexagon(hexId, x, y);
 			
 			var pathCoOrd = col;
-			if(HT.Hexagon.Static.ORIENTATION == HT.Hexagon.Orientation.Normal)
-				h.PathCoOrdX = col;//the column is the x coordinate of the hex, for the y coordinate we need to get more fancy
-			else {
-				h.PathCoOrdY = row;
-				pathCoOrd = row;
-			}
+			h.PathCoOrdY = row;
+			pathCoOrd = row;
 			
 			this.Hexes.push(h);
 			
@@ -94,11 +90,11 @@ HT.Grid.prototype.GetHexId = function(row, col) {
  */
 HT.Grid.prototype.GetHexAt = function(grid, /*HT.Point*/ p) {
 	//find the hex that contains this point
-    for (var h in grid.Hexes)
+    for (var eachHex in grid.Hexes)
 	{
-        if (grid.Hexes[h].Contains(p))
+        if (grid.Hexes[eachHex].Contains(p))
 		{
-            return grid.Hexes[h];
+            return grid.Hexes[eachHex];
 		}
 	}
 
