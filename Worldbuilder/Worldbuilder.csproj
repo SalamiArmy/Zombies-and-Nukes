@@ -35,7 +35,7 @@
     <Content Include="Build-a-World.html" />
     <Content Include="js\Grid.js" />
     <Content Include="js\HexagonTools.js" />
-    <Content Include="js\HexCalcs.js" />
+    <Content Include="js\Init Hex Grid.js" />
     <Content Include="js\MouseHandler.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
