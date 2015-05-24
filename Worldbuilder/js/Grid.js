@@ -1,7 +1,7 @@
 /**
  * A Grid is the model of the playfield containing hexes
  * @constructor
- */
+ **/
 HT.Grid = function(/*double*/ width, /*double*/ height) {
 	
 	this.Hexes = [];

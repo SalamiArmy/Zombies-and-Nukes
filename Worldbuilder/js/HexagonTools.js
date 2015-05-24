@@ -78,7 +78,7 @@ HT.Hexagon = function(id, x, y) {
 /**
  * draws this Hexagon to the canvas
  * @this {HT.Hexagon}
- */
+ **/
 HT.Hexagon.prototype.draw = function(ctx) {
 
 	if(!this.selected)
@@ -106,48 +106,13 @@ HT.Hexagon.prototype.draw = function(ctx) {
 		//var textWidth = ctx.measureText(this.Planet.BoundingHex.Id);
 		ctx.fillText(this.Id, this.MidPoint.X, this.MidPoint.Y);
 	}
-	
-	if(this.PathCoOrdX !== null && this.PathCoOrdY !== null && typeof(this.PathCoOrdX) != "undefined" && typeof(this.PathCoOrdY) != "undefined")
-	{
-		//draw co-ordinates for debugging
-		ctx.fillStyle = "black"
-		ctx.font = "bolder 8pt Trebuchet MS,Tahoma,Verdana,Arial,sans-serif";
-		ctx.textAlign = "center";
-		ctx.textBaseline = 'middle';
-		//var textWidth = ctx.measureText(this.Planet.BoundingHex.Id);
-		ctx.fillText("("+this.PathCoOrdX+","+this.PathCoOrdY+")", this.MidPoint.X, this.MidPoint.Y + 10);
-	}
-	
-	if(HT.Hexagon.Static.DRAWSTATS)
-	{
-		ctx.strokeStyle = "black";
-		ctx.lineWidth = 2;
-		//draw our x1, y1, and z
-		ctx.beginPath();
-		ctx.moveTo(this.P1.X, this.y);
-		ctx.lineTo(this.P1.X, this.P1.Y);
-		ctx.lineTo(this.x, this.P1.Y);
-		ctx.closePath();
-		ctx.stroke();
-		
-		ctx.fillStyle = "black"
-		ctx.font = "bolder 8pt Trebuchet MS,Tahoma,Verdana,Arial,sans-serif";
-		ctx.textAlign = "left";
-		ctx.textBaseline = 'middle';
-		//var textWidth = ctx.measureText(this.Planet.BoundingHex.Id);
-		ctx.fillText("z", this.x + this.x1/2 - 8, this.y + this.y1/2);
-		ctx.fillText("x", this.x + this.x1/2, this.P1.Y + 10);
-		ctx.fillText("y", this.P1.X + 2, this.y + this.y1/2);
-		ctx.fillText("z = " + HT.Hexagon.Static.SIDE, this.P1.X, this.P1.Y + this.y1 + 10);
-		ctx.fillText("(" + this.x1.toFixed(2) + "," + this.y1.toFixed(2) + ")", this.P1.X, this.P1.Y + 10);
-	}
 };
 
 /**
  * Returns true if the x,y coordinates are inside this hexagon
  * @this {HT.Hexagon}
  * @return {boolean}
- */
+ **/
 HT.Hexagon.prototype.isInBounds = function(x, y) {
 	return this.Contains(new HT.Point(x, y));
 };
@@ -158,7 +123,7 @@ HT.Hexagon.prototype.isInBounds = function(x, y) {
  * @this {HT.Hexagon}
  * @param {HT.Point} p the test point
  * @return {boolean}
- */
+ **/
 HT.Hexagon.prototype.isInHexBounds = function(/*Point*/ p) {
 	if(this.TopLeftPoint.X < p.X && this.TopLeftPoint.Y < p.Y &&
 	   p.X < this.BottomRightPoint.X && p.Y < this.BottomRightPoint.Y)
@@ -171,7 +136,7 @@ HT.Hexagon.prototype.isInHexBounds = function(/*Point*/ p) {
  * @this {HT.Hexagon}
  * @param {HT.Point} p the test point
  * @return {boolean}
- */
+ **/
 HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
 	var isIn = false;
 	if (this.isInHexBounds(p))
@@ -203,7 +168,7 @@ HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
 * @this {HT.Hexagon}
 * @param {HT.Point} p the test point
 * @return {number} the distance in pixels
-*/
+**/
 HT.Hexagon.prototype.distanceFromMidPoint = function(/*Point*/ p) {
 	// Pythagoras' Theorem: Square of hypotenuse = sum of squares of other two sides
 	var deltaX = this.MidPoint.X - p.X;
