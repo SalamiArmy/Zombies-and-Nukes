@@ -7,15 +7,16 @@
     <script type="text/javascript" src="js/MouseHandler.js"></script>
 </head>
 <body onload="getHexGridAndAddMouseHandler()">
+    <h1>[[SessionName]]</h1>
     <table>
         <tr>
             <th style="vertical-align:top">
-                <h1>Hex Properties:</h1>
+                <h2>Selected Hex Properties:</h2>
                 <form action="http://localhost:3142/Zombies%20and%20Nukes/World%20Builder/Core%20World%20Builder%20Engine/Update%20Hex%20Properties">
                     <table>
                         <tr>
                             <td align="left">
-                                Session Name:
+                                Off-Set:
                             </td>
                             <td>
                                 <input value="[[OffSet]]" type="text" name="OffSet" id="OffSet" disabled>
@@ -35,6 +36,29 @@
             </th>
             <th><canvas id="hexCanvas" width="800" height="600" style="width:800px;height:600px" /></th>
         </tr>
-    </table>    
+    </table>  
+    <hr/>
+    <h3>Start New Session:</h3>
+        <form action="http://ash:3142/services/Zombies%20and%20Nukes/World%20Builder/Start%20New%20Session">
+            <table>
+                <tr>
+                    <td align="left">
+                        Session Name:
+                    </td>
+                    <td>
+                        <input type="text" name="SessionName" id="SessionName" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        Off-Set:
+                    </td>
+                    <td>
+                        <input value="0,0" type="text" name="OffSet" id="OffSet">
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit">
+        </form>
 </body>
 </html>
