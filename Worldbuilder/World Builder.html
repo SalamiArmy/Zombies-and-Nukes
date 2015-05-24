@@ -7,7 +7,7 @@
     <script type="text/javascript" src="js/MouseHandler.js"></script>
 </head>
 <body onload="getHexGridAndAddMouseHandler()">
-    <h1>[[SessionName]]</h1>
+    <h1 id="SessionName">[[SessionName]]</h1>
     <table>
         <tr>
             <th style="vertical-align:top">
@@ -35,7 +35,7 @@
                                 Data:
                             </td>
                             <td>
-                                <input type="text" name="Data" id="Data">
+                                <input type="text" name="HexData" id="HexData" value="">
                             </td>
                         </tr>
                     </table>
@@ -47,7 +47,7 @@
     </table>  
     <hr/>
     <h3>Start New Session:</h3>
-        <form action="http://ash:3142/services/Zombies%20and%20Nukes/World%20Builder/Start%20New%20Session">
+        <form action="http://localhost:3142/services/Zombies%20and%20Nukes/World%20Builder/Start%20New%20Session">
             <table>
                 <tr>
                     <td align="left">
