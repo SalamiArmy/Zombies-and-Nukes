@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Build-a-World.html" />
+    <Content Include="World Builder.html" />
     <Content Include="js\Grid.js" />
     <Content Include="js\HexagonTools.js" />
     <Content Include="js\Init Hex Grid.js" />

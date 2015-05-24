@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head title="Zombies and Nukes Worldbuilder">
+    <script type="text/javascript" src="js/HexagonTools.js"></script>
+    <script type="text/javascript" src="js/Grid.js"></script>
+    <script type="text/javascript" src="js/Init Hex Grid.js"></script>
+    <script type="text/javascript" src="js/MouseHandler.js"></script>
+</head>
+<body onload="getHexGridAndAddMouseHandler()">
+    <table>
+        <tr>
+            <th>
+                <h1>Hex Properties:</h1>
+                <form action="http://localhost:3142/Zombies%20and%20Nukes/World%20Builder/Core%20World%20Builder%20Engine/Update%20Hex%20Properties">
+                    <table>
+                        <tr>
+                            <td align="left">
+                                Session Name:
+                            </td>
+                            <td>
+                                <input value="[[SessionName]]" type="text" name="SessionName" id="SessionName" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                Hex ID:
+                            </td>
+                            <td>
+                                <input type="text" name="ID" id="ID">
+                            </td>
+                        </tr>
+                    </table>
+                        <input type="submit" value="Submit">
+                </form>
+            </th>
+            <th><canvas id="hexCanvas" width="800" height="600" style="width:800px;height:600px" /></th>
+        </tr>
+    </table>    
+</body>
+</html>
