@@ -2,7 +2,7 @@ var HT = HT || {};
 /**
  * A Point is simply x and y coordinates
  * @constructor
- */
+ **/
 HT.Point = function(x, y) {
 	this.X = x;
 	this.Y = y;
@@ -11,7 +11,7 @@ HT.Point = function(x, y) {
 /**
  * A Rectangle is x and y origin and width and height
  * @constructor
- */
+ **/
 HT.Rectangle = function(x, y, width, height) {
 	this.X = x;
 	this.Y = y;
@@ -22,7 +22,7 @@ HT.Rectangle = function(x, y, width, height) {
 /**
  * A Line is x and y start and x and y end
  * @constructor
- */
+ **/
 HT.Line = function(x1, y1, x2, y2) {
 	this.X1 = x1;
 	this.Y1 = y1;
@@ -33,7 +33,7 @@ HT.Line = function(x1, y1, x2, y2) {
 /**
  * A Hexagon is a 6 sided polygon, our hexes don't have to be symmetrical, i.e. ratio of width to height could be 4 to 3
  * @constructor
- */
+ **/
 HT.Hexagon = function(id, x, y) {
 	this.Points = [];//Polygon Base
 	var x1 = null;
@@ -124,7 +124,7 @@ HT.Hexagon.prototype.isInBounds = function(x, y) {
  * @param {HT.Point} p the test point
  * @return {boolean}
  **/
-HT.Hexagon.prototype.isInHexBounds = function(/*Point*/ p) {
+HT.Hexagon.prototype.isInHexBounds = function(/*/Point/*/ p) {
 	if(this.TopLeftPoint.X < p.X && this.TopLeftPoint.Y < p.Y &&
 	   p.X < this.BottomRightPoint.X && p.Y < this.BottomRightPoint.Y)
 		return true;
@@ -137,7 +137,7 @@ HT.Hexagon.prototype.isInHexBounds = function(/*Point*/ p) {
  * @param {HT.Point} p the test point
  * @return {boolean}
  **/
-HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
+HT.Hexagon.prototype.Contains = function(/*/Point/*/ p) {
 	var isIn = false;
 	if (this.isInHexBounds(p))
 	{
@@ -169,7 +169,7 @@ HT.Hexagon.prototype.Contains = function(/*Point*/ p) {
 * @param {HT.Point} p the test point
 * @return {number} the distance in pixels
 **/
-HT.Hexagon.prototype.distanceFromMidPoint = function(/*Point*/ p) {
+HT.Hexagon.prototype.distanceFromMidPoint = function(/*/Point/*/ p) {
 	// Pythagoras' Theorem: Square of hypotenuse = sum of squares of other two sides
 	var deltaX = this.MidPoint.X - p.X;
 	var deltaY = this.MidPoint.Y - p.Y;

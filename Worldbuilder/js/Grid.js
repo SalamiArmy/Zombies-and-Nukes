@@ -2,7 +2,7 @@
  * A Grid is the model of the playfield containing hexes
  * @constructor
  **/
-HT.Grid = function(/*double*/ width, /*double*/ height) {
+HT.Grid = function(/*/double/*/ width, /*/double/*/ height) {
 	
 	this.Hexes = [];
 	//setup a dictionary for use later for assigning the X or Y CoOrd (depending on Orientation)
@@ -24,7 +24,7 @@ HT.Grid = function(/*double*/ width, /*double*/ height) {
 		var x = offset;
 		while (x + HT.Hexagon.Static.WIDTH <= width)
 		{
-		    var hexId = col+","+row;
+		    var hexId = ConvertColumnToXCoord(col) + "," + row;
 			var h = new HT.Hexagon(hexId, x, y);
 			
 			var pathCoOrd = col;
@@ -60,12 +60,16 @@ HT.Grid = function(/*double*/ width, /*double*/ height) {
 	}
 };
 
+ConvertColumnToXCoord = function(col){
+    return (col - (col % 2)) / 2;
+};
+
 /**
  * Returns a hex at a given point
  * @this {HT.Grid}
  * @return {HT.Hexagon}
- */
-HT.Grid.prototype.GetHexAt = function(grid, /*HT.Point*/ p) {
+ **/
+HT.Grid.prototype.GetHexAt = function(grid, /*/HT.Point/*/ p) {
 	//find the hex that contains this point
     for (var eachHex in grid.Hexes)
 	{
@@ -82,8 +86,8 @@ HT.Grid.prototype.GetHexAt = function(grid, /*HT.Point*/ p) {
  * Returns a distance between two hexes
  * @this {HT.Grid}
  * @return {number}
- */
-HT.Grid.prototype.GetHexDistance = function(/*Hexagon*/ h1, /*Hexagon*/ h2) {
+ **/
+HT.Grid.prototype.GetHexDistance = function(/*/Hexagon/*/ h1, /*/Hexagon/*/ h2) {
 	//a good explanation of this calc can be found here:
 	//http://playtechs.blogspot.com/2007/04/hex-grids.html
 	var deltaX = h1.PathCoOrdX - h2.PathCoOrdX;
@@ -95,7 +99,7 @@ HT.Grid.prototype.GetHexDistance = function(/*Hexagon*/ h1, /*Hexagon*/ h2) {
  * Returns a distance between two hexes
  * @this {HT.Grid}
  * @return {HT.Hexagon}
- */
+ **/
 HT.Grid.prototype.GetHexById = function(id) {
 	for(var i in this.Hexes)
 	{
@@ -112,8 +116,8 @@ HT.Grid.prototype.GetHexById = function(id) {
 * @this {HT.Grid}
 * @param {HT.Point} p the test point 
 * @return {HT.Hexagon}
-*/
-HT.Grid.prototype.GetNearestHex = function(/*Point*/ p) {
+**/
+HT.Grid.prototype.GetNearestHex = function(/*/Point/*/ p) {
 
 	var distance;
 	var minDistance = Number.MAX_VALUE;
