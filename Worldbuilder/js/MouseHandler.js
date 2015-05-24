@@ -6,7 +6,8 @@
     };
 }
 
-function writeMessage(canvas, message) {
+function SelectNewHex(canvas, message) {
+    xmlhttp.open("GET", "http://localhost:3142/Services/")
     document.getElementById("ID").value = message;
 }
 
@@ -14,6 +15,6 @@ function AddMouseHandler(canvas, grid) {
     canvas.addEventListener('mousedown', function (evt) {
         var mousePos = getMousePos(canvas, evt);
         var message = grid.GetHexAt(grid, new HT.Point(mousePos.x, mousePos.y)).Id;
-        writeMessage(canvas, message);
+        SelectNewHex(canvas, message);
     }, false);
 }
