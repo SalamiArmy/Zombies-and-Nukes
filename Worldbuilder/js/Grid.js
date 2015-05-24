@@ -9,8 +9,8 @@ HT.Grid = function(/*/double/*/ width, /*/double/*/ height) {
 	var HexagonsByXOrYCoOrd = {};
 
 	var row = 0;
-	var y = 0.0;
-	while (y + HT.Hexagon.Static.HEIGHT <= height)
+	var y = height - HT.Hexagon.Static.HEIGHT;
+	while (y > 0.0)
 	{
 		var col = 0;
 
@@ -37,11 +37,11 @@ HT.Grid = function(/*/double/*/ width, /*/double/*/ height) {
 				HexagonsByXOrYCoOrd[pathCoOrd] = [];
 			HexagonsByXOrYCoOrd[pathCoOrd].push(h);
 
-			col+=2;
+			col += 2;
 			x += HT.Hexagon.Static.WIDTH;
 		}
 		row++;
-		y += (HT.Hexagon.Static.HEIGHT - HT.Hexagon.Static.SIDE)/2 + HT.Hexagon.Static.SIDE;
+		y -= (HT.Hexagon.Static.HEIGHT - HT.Hexagon.Static.SIDE)/2 + HT.Hexagon.Static.SIDE;
 	}
 
 	//finally go through our list of hexagons by their x co-ordinate to assign the y co-ordinate
