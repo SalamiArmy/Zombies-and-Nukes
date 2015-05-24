@@ -7,7 +7,8 @@
 }
 
 function SelectNewHex(canvas, message) {
-    xmlhttp.open("GET", "http://localhost:3142/services/Zombies%20and%20Nukes/World%20Builder/World%20Builder%20Core/Update%20Session.json?SessionName="+document.getElementById("SessionName").innerText+"&SessionCoord="+document.getElementById("SessionCoord").value+"&OffSet="+document.getElementById("OffSet").value);
+    //xmlhttp.open("GET", "http://localhost:3142/services/Zombies%20and%20Nukes/World%20Builder/World%20Builder%20Core/Update%20Session.json?SessionName=" + document.getElementById("SessionName").innerText + "&SessionCoord=" + document.getElementById("SessionCoord").value + "&OffSet=" + document.getElementById("OffSet").value);
+    document.getElementById("ID").value = message;
 }
 
 function AddMouseHandler(canvas, grid) {
