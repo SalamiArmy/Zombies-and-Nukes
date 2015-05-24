@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40121.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worldbuilder", "Worldbuilder\Worldbuilder.csproj", "{89CDF593-8050-45C1-B3DE-3187F6352AB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{CF9EFD72-10B0-490A-BB6E-119AB6A52371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{89CDF593-8050-45C1-B3DE-3187F6352AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89CDF593-8050-45C1-B3DE-3187F6352AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CDF593-8050-45C1-B3DE-3187F6352AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9EFD72-10B0-490A-BB6E-119AB6A52371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9EFD72-10B0-490A-BB6E-119AB6A52371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9EFD72-10B0-490A-BB6E-119AB6A52371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9EFD72-10B0-490A-BB6E-119AB6A52371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

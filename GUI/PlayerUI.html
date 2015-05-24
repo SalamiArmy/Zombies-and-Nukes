@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/HexagonTools.js"></script>
+<script type="text/javascript" src="js/Grid.js"></script>
+<script type="text/javascript" src="js/HexCalcs.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+</head>
+<body onload="getHexGridWH()">
+
+<table>
+<tr><td>
+<form name="Instruction" action="http://localhost:3142/Public/Zombies%20and%20Nukes/Players/Instruction.json" method="GET" target="_blank" novalidate>
+	<table border="1">
+	  <tr><td>Player Name:</td><td><input type="text" name="PlayerName" value="[[PlayerName]]" disabled></td></tr>
+	  <tr><td>Move?:</td><td>	<input type="radio" name="MoveDistance" value="0" checked="checked">Don't Move</input><br>
+								<input type="radio" name="MoveDistance" value="1">Take a step</input></td></tr>
+	  <tr><td>Move in Direction:</td><td>	<input type="radio" name="MoveDirection" value="6" checked="checked">North</input><br>
+											<input type="radio" name="MoveDirection" value="1">North East</input><br>
+											<input type="radio" name="MoveDirection" value="2">South East</input><br>
+											<input type="radio" name="MoveDirection" value="3">South</input><br>
+											<input type="radio" name="MoveDirection" value="4">South West</input><br>
+											<input type="radio" name="MoveDirection" value="5">North West</input></td></tr>
+	  <tr><td>Turn to Face in Direction:</td><td>	<input type="radio" name="FaceDirection" value="-1" checked="checked">Don't change direction</input><br>
+													<input type="radio" name="FaceDirection" value="12">12 O'Clock (Due North)</input><br>
+													<input type="radio" name="FaceDirection" value="1">1 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="2">2 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="3">3 O'Clock (Due East)</input><br>
+													<input type="radio" name="FaceDirection" value="4">4 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="5">5 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="5">6 O'Clock (Due South)</input><br>
+													<input type="radio" name="FaceDirection" value="5">7 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="5">8 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="5">9 O'Clock (Due West)</input><br>
+													<input type="radio" name="FaceDirection" value="5">10 O'Clock</input><br>
+													<input type="radio" name="FaceDirection" value="5">11 O'Clock</input><br>
+	  <tr><td>Change Weapon To:</td><td><input type="text" name="ChangeWeapon" value="[[CurrentWeapon]]"></td></tr>
+	  <tr><td>Are You Firing Your Weapon?:</td><td>	<input type="radio" name="IsFiring" value="True">True</input><br>
+													<input type="radio" name="IsFiring" value="False" checked="checked">False</input></td></tr>
+	  <tr><td>Notes for GM:</td><td><textarea name="InfoForGM" form="Instruction" ></textarea></td></tr>
+	  <tr><td>Save Name:</td><td><input type="text" name="SaveName" value="[[SaveName]]" disabled></td></tr>
+	</table>
+<input type="Submit"/>
+</form>
+</td><td>
+<canvas id="hexCanvas" width="800" height="600" style="width:800px;height:600px" ></canvas>
+</td></tr>
+</table>
+<div id="hexStatus" style="visibility:hidden"></div>
+</body>
+</html>
