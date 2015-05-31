@@ -10,7 +10,7 @@ function SelectNewHex(canvas, message) {
     document.getElementById("HexData").value = "[[HexData]]";
     document.getElementById("SessionCoord").value = message;
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://localhost:3142/services/Zombies%20and%20Nukes/World%20Builder/World%20Builder%20Core/Update%20Session.json?SessionName=" + document.getElementById("SessionName").innerText + "&SessionCoord=" + document.getElementById("SessionCoord").value + "&OffSet=" + document.getElementById("OffSet").value);
+    xmlhttp.open("GET", "http://localhost:3142/Public/Zombies%20and%20Nukes/World%20Builder/World%20Builder%20Core/Update%20Session.json?SessionName=" + document.getElementById("SessionName").innerText + "&SessionCoord=" + document.getElementById("SessionCoord").value + "&OffSet=" + document.getElementById("OffSet").value);
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             document.getElementById("HexData").value = xmlhttp.responseText;
