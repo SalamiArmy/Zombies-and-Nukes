@@ -7,3 +7,10 @@
 /Worldbuilder/bin
 /Worldbuilder/obj
 *.suo
+*.lnk
+
+# For GMs only
+NormalGMNarrationKey.ini
+FinaleNarrationKey.ini
+/Narration/**/*.txt
+/Narration/**/*.decrypted
