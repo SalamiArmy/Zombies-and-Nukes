@@ -1,3 +1,5 @@
+from configparser import ConfigParser
+
 import StringIO
 import json
 import logging
@@ -14,7 +16,11 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-TOKEN = 'YOUR_BOT_TOKEN_HERE'
+# Read keys.ini file at program start (don't forget to put your keys in there!)
+keyConfig = ConfigParser.ConfigParser()
+keyConfig.read(["keys.ini", "..\keys.ini"])
+
+TOKEN = keyConfig.get('Telegram', 'TELE_BOT_ID')
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
