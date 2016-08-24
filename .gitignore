@@ -8,9 +8,19 @@
 /Worldbuilder/obj
 *.suo
 *.lnk
+*.user
 
 # For GMs only
 NormalGMNarrationKey.ini
 FinaleNarrationKey.ini
 /Narration/**/*.txt
 /Narration/**/*.decrypted
+
+#Googl App Engine
+app.yaml
+
+#Telegram Bot
+keys.ini
+
+#PyCharm
+.idea/**/*
