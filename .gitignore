@@ -18,6 +18,7 @@ FinaleNarrationKey.ini
 
 #Googl App Engine
 app.yaml
+lib/**/*
 
 #Telegram Bot
 keys.ini
