@@ -1,5 +1,4 @@
-from configparser import ConfigParser
-
+import ConfigParser
 import StringIO
 import json
 import logging
