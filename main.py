@@ -1,14 +1,9 @@
-from configparser import ConfigParser
-
-import StringIO
+import ConfigParser
 import json
 import logging
-import random
 import urllib
 import urllib2
 
-# for sending images
-from PIL import Image
 import multipart
 
 # standard app engine imports
@@ -85,6 +80,7 @@ class WebhookHandler(webapp2.RequestHandler):
         date = message.get('date')
         text = message.get('text')
         fr = message.get('from')
+        from_id = fr.get('id')
         chat = message['chat']
         chat_id = chat['id']
 
@@ -92,7 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
             logging.info('no text')
             return
 
-        def reply(msg=None, img=None):
+        def reply(msg=None, img=None, SpawnScenario=None):
             if msg:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': str(chat_id),
@@ -107,37 +103,37 @@ class WebhookHandler(webapp2.RequestHandler):
                 ], [
                     ('photo', 'image.jpg', img),
                 ])
+            elif SpawnScenario:
+                resp = urllib2.urlopen(BASE_URL + 'messages.createChat', urllib.urlencode({
+                    'users': str(from_id),
+                    'title': SpawnScenario.encode('utf-8'),
+                })).read()
             else:
                 logging.error('no msg or img specified')
                 resp = None
 
             logging.info('send response:')
             logging.info(resp)
+        spawnScenarioCommand = 'spawn scenario for '
 
         if text.startswith('/'):
             if text == '/start':
                 reply('Bot enabled')
                 setEnabled(chat_id, True)
-            elif text == '/stop':
+            elif text == '/stop' and getEnabled(chat_id):
                 reply('Bot disabled')
                 setEnabled(chat_id, False)
-            elif text == '/image':
-                img = Image.new('RGB', (512, 512))
-                base = random.randint(0, 16777216)
-                pixels = [base+i*j for i in range(512) for j in range(512)]  # generate sample image
-                img.putdata(pixels)
-                output = StringIO.StringIO()
-                img.save(output, 'JPEG')
-                reply(img=output.getvalue())
             else:
                 reply('What command?')
 
         # CUSTOMIZE FROM HERE
 
-        elif 'who are you' in text:
-            reply('telebot starter kit, created by yukuku: https://github.com/yukuku/telebot')
-        elif 'what time' in text:
-            reply('look at the corner of your screen!')
+        elif 'who are you' in text and getEnabled(chat_id):
+            reply('Zombies and Nukes, created by SalamiArmy: https://github.com/SalamiArmy/Zombies-and-Nukes')
+        elif text.startswith(spawnScenarioCommand) and getEnabled(chat_id):
+            ScenarioName = text.replace(spawnScenarioCommand, '')
+            reply(msg='Spawning scenario for ' + ScenarioName + '...')
+            reply(SpawnScenario=ScenarioName)
         else:
             if getEnabled(chat_id):
                 reply('I got your message! (but I do not know how to answer)')
