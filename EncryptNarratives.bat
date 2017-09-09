@@ -1,8 +1,8 @@
 if exist "%~dp0PublicNarrationKey.ini" (
-	if exist "%~dp0Narration\*.txt" (
-		for /f "delims=|" %%f in ('dir /b /s %~dp0Narration\*.txt') do "%~dp0openssl-0.9.8h-1-bin\openssl.exe" aes-256-cbc -salt -a -e -in "%%f" -out "%%f.encrypted" -pass file:%~dp0PublicNarrationKey.ini
+	if exist "%~dp0Narration\Public\*.txt" (
+		for /f "delims=|" %%f in ('dir /b /s %~dp0Narration\Public\*.txt') do "%~dp0openssl-0.9.8h-1-bin\openssl.exe" aes-256-cbc -salt -a -e -in "%%f" -out "%%f.encrypted" -pass file:%~dp0PublicNarrationKey.ini
 	) else (
-		echo "%~dp0Narration\*.txt" file missing.
+		echo "%~dp0Narration\Public\*.txt" file missing.
 		pause
 	)
 ) else (
